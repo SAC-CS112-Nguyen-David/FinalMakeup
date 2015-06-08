@@ -3,15 +3,15 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class BlackJackTwo extends Dice {
+public class BlackJackTwo extends Dice { //extending dice
 	String type;
 	int currentcard;
 	int total = 0; // will end dealer hands or your hand
 	static int dealerTotal = 0; // this is all encapsulated in recursion call..
-								// doesnt care if player or dealer
+								// Doesn't care if player or dealer
 	static int playerTotal = 0; // put to static so you can compare the two at
 								// the end
-	Random ran = new Random(); // randoim dice-card generater
+	Random ran = new Random(); // Random dice-card generator
 	Scanner scan = new Scanner(System.in); // hit or stay
 
 	// constructor, player or dealer
