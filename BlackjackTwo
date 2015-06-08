@@ -3,7 +3,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class BlackJackTwo extends Dice { //extending dice
+public class BlackJackTwo extends Dice { //Inheriting Dice
 	String type;
 	int currentcard;
 	int total = 0; // will end dealer hands or your hand
@@ -24,7 +24,7 @@ public class BlackJackTwo extends Dice { //extending dice
 	@Override //using 14 values instead of 6 as seen in Dice
 	void displayCard() // Encapsulation: all card values encapsulated in its own method
 	{
-		currentcard = ran.nextInt(14); // generate betwee 0 and 14
+		currentcard = ran.nextInt(14); // generate between 0 and 14
 		while (currentcard == 0) {
 			currentcard = ran.nextInt(14);
 
