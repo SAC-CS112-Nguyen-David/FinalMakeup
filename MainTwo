@@ -1,0 +1,22 @@
+public class MainTwo extends BlackJackTwo { // here is using polymorphism and
+											// inheritance to extend class
+											// BlackJackTwo
+
+	public MainTwo(String player) {
+		super(player);
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) { // creating objects
+		BlackJackTwo player = new BlackJackTwo("Player");
+		BlackJackTwo dealer = new BlackJackTwo("Dealer");
+		player.WhoWon();
+
+		BlackJackTwo();
+	}
+
+	private static void BlackJackTwo() {
+		// TODO Auto-generated method stub
+
+	}
+}
