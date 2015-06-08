@@ -1,0 +1,84 @@
+//made with Eclipse
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class BlackJackTwo extends Card { //inheriting Card
+	String type;
+	int currentcard;
+	int total = 0; // will end dealer hands or your hand
+	static int dealerTotal = 0; // this is all encapsulated in recursion call..
+								// Doesn't care if player or dealer
+	static int playerTotal = 0; // put to static so you can compare the two at
+								// the end
+	Random ran = new Random(); // Random dice-card generator
+	Scanner scan = new Scanner(System.in); // hit or stay
+
+	// constructor, player or dealer
+	public BlackJackTwo(String player) {
+		type = player;
+		// start deal and game
+		Deal();
+		game();
+	}
+
+
+	void Deal() { // 2nd card
+		System.out.println("First Card: ");
+		displayCard(); // recall to generate 2nd card
+		System.out.println("Second Card: ");
+		displayCard();
+
+	}
+
+	void game() {
+		if (total <= 21) {
+			if (!(type.equals("Dealer"))) { // if you didnt bust here is option
+											// to hit and make sure ur not
+											// dealer
+				System.out.println("Would you like to Hit? (Y/N)");
+				if (scan.nextLine().equalsIgnoreCase("Y")) {
+					displayCard(); // now generate another card
+					game(); // now goto game to see if u want to hit or not
+				} else {
+					System.out.println("Your total: " + total + "\n\n");
+					playerTotal = total;
+
+				}
+			}
+		} else { // if u busted, type can either be the player or dealer
+			System.out.println(type + " busted (Lose):" + total);
+			System.exit(0); // makes it jump out and goto main
+
+		}
+
+		if (type.equalsIgnoreCase("Dealer")) {
+			if ((total < 17 && total <= 21 || total < playerTotal)) {
+				displayCard();
+				game();
+			} else {
+				if (total < 21)
+					dealerTotal = total;
+			}
+		}
+	}
+
+	public void WhoWon() { // see who won the game
+		if (dealerTotal == 0) {
+			System.out.println("Dealer Busted, Player wins");
+			if (playerTotal == 0) {
+				System.out.println("Player Busted, Dealer wins");
+			}
+			if (dealerTotal < playerTotal) {
+				System.out.println("Player won, Dealer loses");
+			} else if (dealerTotal > playerTotal) {
+				System.out.println("Dealer won, Player loses");
+			}
+			if (dealerTotal == playerTotal) {
+				System.out.println("Draw");
+			}
+		}
+
+	}
+
+}
