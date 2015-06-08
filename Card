@@ -1,0 +1,56 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Card extends Dice { //inheriting Dice
+	String type;
+	int currentcard;
+	int total = 0; 
+	static int dealerTotal = 0; 
+	static int playerTotal = 0; 
+	Random ran = new Random(); 
+	Scanner scan = new Scanner(System.in); 
+
+	@Override //using 14 values instead of 6 as seen in Dice
+	void displayCard() // Encapsulation: all card values encapsulated in its own
+						// method
+	{
+		currentcard = ran.nextInt(14); // generate between 0 and 14
+		while (currentcard == 0) {
+			currentcard = ran.nextInt(14);
+
+		}
+		switch (currentcard) { // these are 11-14 face values JQKA
+		case 11:
+			System.out.println("\t" + type + " drew a Jack.");
+			total = total + 10;
+			System.out
+					.println("\t" + type + " Current total: " + total + ".\n");
+			break;
+		case 12:
+			System.out.println("\t" + type + " drew a Queen.");
+			total = total + 10;
+			System.out
+					.println("\t" + type + " Current total: " + total + ".\n");
+			break;
+		case 13:
+			System.out.println("\t" + type + " drew a King.");
+			total = total + 10;
+			System.out
+					.println("\t" + type + " Current total: " + total + ".\n");
+			break;
+		case 14:
+			System.out.println("\t" + type + " drew a Ace.");
+			total = total + 11; // ace is 11
+			System.out
+					.println("\t" + type + " Current total: " + total + ".\n");
+			break;
+		default:
+			// these are 1-10
+			System.out.println("\t" + type + " drew a " + currentcard + ".");
+			total = total + currentcard;
+			System.out
+					.println("\t" + type + " Current total: " + total + ".\n");
+
+		}
+	}
+}
