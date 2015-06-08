@@ -1,6 +1,4 @@
-public class MainTwo extends BlackJackTwo { // here is using polymorphism and
-											// inheritance to extend class
-											// BlackJackTwo
+public class MainTwo extends BlackJackTwo { 
 
 	public MainTwo(String player) {
 		super(player);
